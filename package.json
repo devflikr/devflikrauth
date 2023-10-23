@@ -1,0 +1,55 @@
+{
+    "name": "devflikrauth",
+    "version": "0.1.0",
+    "description": "A authentication API service for DevFlikr apps.",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/esm/index.d.ts",
+    "typings": "./dist/esm/index.d.ts",
+    "scripts": {
+        "lint": "eslint . --ext .ts",
+        "prepublishOnly": "npm run compile",
+        "postpublish": "npm run clean",
+        "compile": "npm run clean && npm run compile:esm && npm run compile:cjs",
+        "compile:esm": "tsc",
+        "compile:cjs": "tsc --module commonjs --outDir dist/cjs",
+        "clean": "rimraf dist"
+    },
+    "files": [
+        "dist",
+        "LICENSE",
+        "package.json",
+        "README.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DevFlikr/devflikrauth"
+    },
+    "keywords": [
+        "auth",
+        "devflikr",
+        "devflikrauth",
+        "flikrauth",
+        "devflikr-auth",
+        "devauth"
+    ],
+    "author": "DevFlikr",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DevFlikr/devflikrauth/issues"
+    },
+    "devDependencies": {
+        "@types/js-cookie": "^3.0.5",
+        "@typescript-eslint/eslint-plugin": "^6.8.0",
+        "concurrently": "^8.2.1",
+        "eslint": "^8.45.0",
+        "rimraf": "^5.0.1",
+        "typescript": "^5.1.6"
+    },
+    "homepage": "https://github.com/DevFlikr/devflikrauth#readme",
+    "dependencies": {
+        "axios": "^1.5.1",
+        "js-cookie": "^3.0.5",
+        "tslib": "^2.6.2"
+    }
+}
