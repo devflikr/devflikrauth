@@ -2,7 +2,7 @@
 import User from "../types/User";
 import fetch from "../util/fetch";
 
-async function updatePassword(user: User, oldPassword: string, newPassword: string) {
+async function updateUserPassword(user: User, oldPassword: string, newPassword: string) {
     return await fetch("/pwdnew", {
         method: "POST",
     }, {
@@ -12,4 +12,4 @@ async function updatePassword(user: User, oldPassword: string, newPassword: stri
     });
 }
 
-export default updatePassword;
+export default updateUserPassword;

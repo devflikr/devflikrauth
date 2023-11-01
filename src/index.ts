@@ -1,6 +1,10 @@
 import authLib from "./main";
 
 import User from "./types/User";
+import UserDetail from "./types/UserDetail";
+import UserSession from "./types/UserSession";
+import UserProfileOptions from "./types/UserProfileOptions";
+
 
 import signOut from "./lib/signOut";
 
@@ -9,15 +13,20 @@ import AuthLibrary from "./types/AuthLibrary";
 import AuthListener from "./types/AuthListener";
 import AuthResponse from "./types/AuthResponse";
 
-import updatePassword from "./lib/updatePassword";
+import getUserDetail from "./lib/getUserDetail";
+import getUserSessions from "./lib/getUserSessions";
+
+import removeUserSession from "./lib/removeUserSession";
+
 import updateUserProfile from "./lib/updateUserProfile";
+import updateUserPassword from "./lib/updateUserPassword";
 import updateUserUsername from "./lib/updateUserUsername";
 
 import onAuthStateUpdate from "./lib/onAuthStateUpdate";
 import setCurrentAuthIndex from "./lib/setCurrentAuthIndex";
 
-import resetPasswordWithToken from "./lib/resetPasswordWithToken";
-import sendPasswordResetToken from "./lib/sendPasswordResetToken";
+import sendNewPassword from "./lib/sendNewPassword";
+import sendEmailVerification from "./lib/sendEmailVerification";
 
 import createUserWithEmailAndPassword from "./lib/createUserWithEmailAndPassword";
 import loginUserWithUsernameAndPassword from "./lib/loginUserWithUsernameAndPassword";
@@ -28,16 +37,20 @@ const devFlikrAuth = {
     library,
 
     signOut,
-
     onAuthStateUpdate,
-
-    updatePassword,
-    updateUserProfile,
-    updateUserUsername,
     setCurrentAuthIndex,
 
-    resetPasswordWithToken,
-    sendPasswordResetToken,
+    getUserDetail,
+    getUserSessions,
+
+    removeUserSession,
+
+    updateUserProfile,
+    updateUserPassword,
+    updateUserUsername,
+
+    sendNewPassword,
+    sendEmailVerification,
 
     createUserWithEmailAndPassword,
     loginUserWithUsernameAndPassword,
@@ -46,25 +59,34 @@ const devFlikrAuth = {
 export {
     library,
 
-    loginUserWithUsernameAndPassword,
     createUserWithEmailAndPassword,
+    loginUserWithUsernameAndPassword,
 
-    resetPasswordWithToken,
-    sendPasswordResetToken,
+    sendNewPassword,
+    sendEmailVerification,
 
-    setCurrentAuthIndex,
-    onAuthStateUpdate,
+    getUserDetail,
+    getUserSessions,
+
+    removeUserSession,
+
     signOut,
+    onAuthStateUpdate,
+    setCurrentAuthIndex,
 
-    updatePassword,
     updateUserProfile,
+    updateUserPassword,
     updateUserUsername,
 
+    User,
+    UserDetail,
+    UserSession,
+    UserProfileOptions,
+
+    AuthReject,
     AuthLibrary,
     AuthListener,
-    AuthReject,
     AuthResponse,
-    User,
 };
 
 export default devFlikrAuth;

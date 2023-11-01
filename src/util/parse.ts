@@ -6,17 +6,19 @@ import Cookies from "js-cookie";
 import AuthReject from "../types/AuthReject";
 import listen from "./listen";
 
-export function parseReturnedData(data: AuthResponse, keyString?: string, value?: unknown) {
+export function parseReturnedData<T>(data: AuthResponse, keyString?: string, value?: unknown) {
     authLib.error = null;
-    if (data?.data) {
-        authLib.auth = data.data;
-        Cookies.set(AUTH_ARRAY_NAME, authLib.auth.map(auth => auth.sessionToken).join("."), {
-            expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
-            path: "/",
-        });
-    } else {
-        authLib.auth = [];
-        authLib.index = -1;
+    if (data?.auth) {
+        if (data.auth.length) {
+            authLib.auth = data.auth;
+            Cookies.set(AUTH_ARRAY_NAME, authLib.auth.map(auth => auth.sessionToken).join("."), {
+                expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
+                path: "/",
+            });
+        } else {
+            authLib.auth = [];
+            authLib.index = -1;
+        }
     }
 
 
@@ -29,9 +31,15 @@ export function parseReturnedData(data: AuthResponse, keyString?: string, value?
             }
             return false;
         });
+
+        parseListeners();
+
+        return authLib.auth[authLib.index];
     }
 
-    return parseListeners();
+    parseListeners();
+
+    return data.data as T;
 }
 
 function parseListeners() {
@@ -48,5 +56,6 @@ function parseListeners() {
 export function parseRejectedError(error: AxiosError<AuthReject>) {
     authLib.error = error.response || error;
     listen();
-    return authLib.error;
+    authLib.error = null;
+    return error.response || error;
 }

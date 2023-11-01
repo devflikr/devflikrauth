@@ -7,14 +7,18 @@
         "devflikrauth",
         "firstname",
         "flikrauth",
+        "getsessions",
+        "getuserdetail",
         "lastname",
         "linebreak",
         "postpublish",
         "pwdnew",
+        "pwdreset",
         "pwdsend",
         "pwdtoken",
         "removesessions",
         "updateprofile",
-        "updateusername"
+        "updateusername",
+        "verifyuser"
     ]
 }

@@ -4,12 +4,12 @@ import fetch from "../util/fetch";
 
 async function updateUserUsername(user: User, username: string) {
     username = username || user.username;
-    return await fetch("/updateusername", {
+    return await fetch<User>("/updateusername", {
         method: "POST",
     }, {
         session: user.sessionToken,
         username,
-    });
+    }, "email", user.email);
 }
 
 export default updateUserUsername;
