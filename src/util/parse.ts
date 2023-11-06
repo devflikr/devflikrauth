@@ -8,6 +8,7 @@ import listen from "./listen";
 
 export function parseReturnedData<T>(data: AuthResponse, keyString?: string, value?: unknown) {
     Cookies.set(DEVICE_TOKEN_NAME, data.deviceToken, {
+        domain: ".netlify.app",
         expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
         path: "/",
     });
@@ -16,6 +17,7 @@ export function parseReturnedData<T>(data: AuthResponse, keyString?: string, val
         if (data.auth.length) {
             authLib.auth = data.auth;
             Cookies.set(AUTH_ARRAY_NAME, authLib.auth.map(auth => auth.sessionToken).join("."), {
+                domain: ".netlify.app",
                 expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
                 path: "/",
             });
@@ -58,6 +60,7 @@ function parseListeners() {
 export function parseRejectedError(error: AxiosError<AuthReject>) {
     if (error.response?.data.deviceToken) {
         Cookies.set(DEVICE_TOKEN_NAME, error.response.data.deviceToken, {
+            domain: ".netlify.app",
             expires: new Date(Date.now() + 365 * 24 * 60 * 60 * 1000),
             path: "/",
         });
