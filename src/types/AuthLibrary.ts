@@ -7,6 +7,7 @@ type AuthLibrary = {
     auth: User[];
     index: number;
     error: unknown;
+    listen: () => void;
 };
 
 export default AuthLibrary;

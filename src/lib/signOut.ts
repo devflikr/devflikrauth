@@ -1,7 +1,6 @@
 
-import authLib, { DEVICE_TOKEN_NAME } from "../main";
+import authLib from "../main";
 import fetch from "../util/fetch";
-import Cookies from "js-cookie";
 import listen from "../util/listen";
 
 async function signOut() {
@@ -9,8 +8,6 @@ async function signOut() {
     authLib.index = -1;
 
     listen();
-
-    Cookies.remove(DEVICE_TOKEN_NAME);
 
     return await fetch("/removesessions", {
         method: "DELETE",

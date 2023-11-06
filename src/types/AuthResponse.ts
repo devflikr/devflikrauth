@@ -6,6 +6,7 @@ type AuthResponse = {
     success: boolean;
     status: "success";
     message: unknown;
+    deviceToken: string;
     auth?: User[];
     data?: User | UserDetail | UserSession | null;
 }
