@@ -1,6 +1,6 @@
 {
     "name": "devflikrauth",
-    "version": "0.1.11",
+    "version": "0.1.16",
     "description": "A authentication API service for DevFlikr apps.",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -39,7 +39,6 @@
         "url": "https://github.com/DevFlikr/devflikrauth/issues"
     },
     "devDependencies": {
-        "@types/js-cookie": "^3.0.5",
         "@typescript-eslint/eslint-plugin": "^6.8.0",
         "concurrently": "^8.2.1",
         "eslint": "^8.45.0",
@@ -49,7 +48,6 @@
     "homepage": "https://github.com/DevFlikr/devflikrauth#readme",
     "dependencies": {
         "axios": "^1.5.1",
-        "js-cookie": "^3.0.5",
         "tslib": "^2.6.2"
     }
 }
