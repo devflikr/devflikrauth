@@ -76,8 +76,10 @@ export {
 
     updateUserProfile,
     updateUserPassword,
-    updateUserUsername,
+    updateUserUsername
+};
 
+export type {
     User,
     UserDetail,
     UserSession,
@@ -86,7 +88,7 @@ export {
     AuthReject,
     AuthLibrary,
     AuthListener,
-    AuthResponse,
+    AuthResponse
 };
 
 export default devFlikrAuth;
